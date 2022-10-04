@@ -2,5 +2,9 @@
     "[astro][css][json][jsonc][typescript][typescriptreact]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": true
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "node_modules": true,
     }
 }
