@@ -1,0 +1,25 @@
+---
+import { SIDEBAR } from "../config";
+---
+
+<nav>
+	<ul>
+		{
+			Object.entries(SIDEBAR).map(([header, children]) => (
+				<li>
+					<h2>{header}</h2>
+					<ul>
+						{children.map((child) => {
+							const url = Astro.site?.pathname + child.link;
+							return (
+								<li>
+									<a href={url}>{child.text}</a>
+								</li>
+							);
+						})}
+					</ul>
+				</li>
+			))
+		}
+	</ul>
+</nav>

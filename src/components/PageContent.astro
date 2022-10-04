@@ -1,0 +1,15 @@
+---
+import type { Frontmatter } from "../config";
+
+type Props = {
+	frontmatter: Frontmatter;
+};
+
+const { frontmatter } = Astro.props as Props;
+const title = frontmatter.title;
+---
+
+<article class="prose dark:prose-invert">
+	<h1>{title}</h1>
+	<slot />
+</article>

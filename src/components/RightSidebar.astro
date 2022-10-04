@@ -1,0 +1,19 @@
+---
+import type { MarkdownHeading } from "astro";
+
+type Props = {
+	headings: MarkdownHeading[];
+	editUrl: string;
+};
+
+const { editUrl } = Astro.props as Props;
+---
+
+<h2>More</h2>
+<ul>
+	<li>
+		<a href={editUrl}>
+			<span>Edit this page</span>
+		</a>
+	</li>
+</ul>
