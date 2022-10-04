@@ -1,7 +1,7 @@
 export const SITE = {
 	title: 'EccentricVamp',
 	description: 'EccentricVamp\'s personal website',
-	defaultLanguage: 'en_US',
+	language: 'en-US',
 };
 
 // This is the type of the frontmatter you put in the docs markdown files.
@@ -17,9 +17,9 @@ export const EDIT_URL = `https://github.com/EccentricVamp/EccentricVamp.github.i
 export type Sidebar = Record<string, { text: string; link: string }[]>;
 export const SIDEBAR: Sidebar = {
 	'Section Header': [
-		{ text: 'Introduction', link: 'en/introduction' },
-		{ text: 'Page 2', link: 'en/page-2' },
-		{ text: 'Page 3', link: 'en/page-3' },
+		{ text: 'Introduction', link: 'introduction' },
+		{ text: 'Page 2', link: 'page-2' },
+		{ text: 'Page 3', link: 'page-3' },
 	],
-	'Another Section': [{ text: 'Page 4', link: 'en/page-4' }],
+	'Another Section': [{ text: 'Page 4', link: 'page-4' }],
 };
