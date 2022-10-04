@@ -1,6 +1,6 @@
-import { defineConfig } from 'astro/config';
-import preact from '@astrojs/preact';
-import react from '@astrojs/react';
+import { defineConfig } from "astro/config";
+import preact from "@astrojs/preact";
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,5 +10,5 @@ export default defineConfig({
 		// Enable React for the Algolia search component.
 		react(),
 	],
-	site: `http://astro.build`,
+	site: "https://EccentricVamp.github.io",
 });
