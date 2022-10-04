@@ -1,13 +1,13 @@
 ---
-import { getLanguageFromURL } from '../../languages';
-import { SIDEBAR } from '../../config';
+import { getLanguageFromURL } from "../../languages";
+import { SIDEBAR } from "../../config";
 
 type Props = {
 	currentPage: string;
 };
 
 const { currentPage } = Astro.props as Props;
-const currentPageMatch = currentPage.endsWith('/')
+const currentPageMatch = currentPage.endsWith("/")
 	? currentPage.slice(1, -1)
 	: currentPage.slice(1);
 const langCode = getLanguageFromURL(currentPage);
@@ -16,33 +16,42 @@ const sidebar = SIDEBAR[langCode];
 
 <nav aria-labelledby="grid-left">
 	<ul class="nav-groups">
-		{Object.entries(sidebar).map(([header, children]) => (
-			<li>
-				<div class="nav-group">
-					<h2>{header}</h2>
-					<ul>
-						{children.map((child) => {
-							const url = Astro.site?.pathname + child.link;
-							return (
-								<li class="nav-link">
-									<a href={url} aria-current={currentPageMatch === child.link ? 'page' : false}>
-										{child.text}
-									</a>
-								</li>
-							);
-						})}
-					</ul>
-				</div>
-			</li>
-		))}
+		{
+			Object.entries(sidebar).map(([header, children]) => (
+				<li>
+					<div class="nav-group">
+						<h2>{header}</h2>
+						<ul>
+							{children.map((child) => {
+								const url = Astro.site?.pathname + child.link;
+								return (
+									<li class="nav-link">
+										<a
+											href={url}
+											aria-current={
+												currentPageMatch === child.link
+													? "page"
+													: false
+											}
+										>
+											{child.text}
+										</a>
+									</li>
+								);
+							})}
+						</ul>
+					</div>
+				</li>
+			))
+		}
 	</ul>
 </nav>
 
 <script is:inline>
-	window.addEventListener('DOMContentLoaded', () => {
+	window.addEventListener("DOMContentLoaded", () => {
 		var target = document.querySelector('[aria-current="page"]');
 		if (target && target.offsetTop > window.innerHeight - 100) {
-			document.querySelector('.nav-groups').scrollTop = target.offsetTop;
+			document.querySelector(".nav-groups").scrollTop = target.offsetTop;
 		}
 	});
 </script>
@@ -97,7 +106,7 @@ const sidebar = SIDEBAR[langCode];
 		background-color: var(--theme-bg-hover);
 	}
 
-	.nav-link a[aria-current='page'] {
+	.nav-link a[aria-current="page"] {
 		color: var(--theme-text-accent);
 		background-color: var(--theme-bg-accent);
 		font-weight: 600;
@@ -111,7 +120,7 @@ const sidebar = SIDEBAR[langCode];
 </style>
 
 <style is:global>
-	:root.theme-dark .nav-link a[aria-current='page'] {
+	:root.theme-dark .nav-link a[aria-current="page"] {
 		color: hsla(var(--color-base-white), 100%, 1);
 	}
 </style>
