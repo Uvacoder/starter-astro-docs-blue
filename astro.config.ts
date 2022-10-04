@@ -9,5 +9,5 @@ export default defineConfig({
 		react(),
 		tailwind()
 	],
-	site: "https://EccentricVamp.github.io"
+	site: "https://EccentricVamp.github.io",
 });
