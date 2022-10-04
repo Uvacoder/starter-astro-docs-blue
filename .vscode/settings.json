@@ -1,5 +1,5 @@
 {
-    "[json][jsonc][typescript][typescriptreact]": {
+    "[astro][css][json][jsonc][typescript][typescriptreact]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": true
     }
