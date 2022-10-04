@@ -12,7 +12,7 @@ export type Frontmatter = {
 	image?: { src: string; alt: string };
 };
 
-export const EDIT_URL = `https://github.com/EccentricVamp/EccentricVamp.github.io/tree/main`;
+export const EDIT_URL = `https://github.com/EccentricVamp/eccentricvamp.github.io/tree/main`;
 
 export type Sidebar = Record<string, { text: string; link: string }[]>;
 export const SIDEBAR: Sidebar = {
