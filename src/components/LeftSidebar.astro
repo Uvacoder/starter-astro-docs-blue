@@ -9,14 +9,13 @@ import { SIDEBAR } from "../config";
 				<li>
 					<h2>{header}</h2>
 					<ul>
-						{children.map((child) => {
-							const url = Astro.site?.pathname + child.link;
-							return (
-								<li>
-									<a href={url}>{child.text}</a>
-								</li>
-							);
-						})}
+						{children.map((child) => (
+							<li>
+								<a href={Astro.site?.pathname + child.link}>
+									{child.text}
+								</a>
+							</li>
+						))}
 					</ul>
 				</li>
 			))

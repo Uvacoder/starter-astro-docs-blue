@@ -1,13 +1,22 @@
 ---
 import type { MarkdownHeading } from "astro";
 
-type Props = {
+const { headings, editUrl } = Astro.props as {
 	headings: MarkdownHeading[];
 	editUrl: string;
 };
-
-const { editUrl } = Astro.props as Props;
 ---
+
+<h2>On this page</h2>
+<ul>
+	{
+		headings.map((heading) => (
+			<li>
+				<a href={"#" + heading.slug}>{heading.text}</a>
+			</li>
+		))
+	}
+</ul>
 
 <h2>More</h2>
 <ul>

@@ -3,21 +3,22 @@ import Header from "../components/Header.astro";
 import PageContent from "../components/PageContent.astro";
 import LeftSidebar from "../components/LeftSidebar.astro";
 import RightSidebar from "../components/RightSidebar.astro";
-import * as CONFIG from "../config";
+import { EDIT_URL, Frontmatter, SITE } from "../config";
 import type { MarkdownHeading } from "astro";
 
-type Props = {
-	frontmatter: CONFIG.Frontmatter;
+const { frontmatter, headings } = Astro.props as {
+	frontmatter: Frontmatter;
 	headings: MarkdownHeading[];
 };
-
-const { frontmatter, headings } = Astro.props as Props;
-const currentPage = Astro.url.pathname;
-const currentFile = `src/pages${currentPage.replace(/\/$/, "")}.md`;
-const editUrl = `${CONFIG.EDIT_URL}/${currentFile}`;
+const page = Astro.url.pathname;
+const file = `src/pages${page.replace(/\/$/, "")}.md`;
+const editUrl = `${EDIT_URL}/${file}`;
+const title = frontmatter.title
+	? `${frontmatter.title} - ${SITE.title}`
+	: SITE.title;
 ---
 
-<html dir="ltr" lang="en-us" class="initial">
+<html lang={SITE.language}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -25,21 +26,15 @@ const editUrl = `${CONFIG.EDIT_URL}/${currentFile}`;
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-		<title>
-			{
-				frontmatter.title
-					? `${frontmatter.title} - ${CONFIG.SITE.title}`
-					: CONFIG.SITE.title
-			}
-		</title>
+		<title>{title}</title>
 	</head>
 
 	<body
 		class="text-slate-500 bg-slate-100 dark:text-slate-400 dark:bg-slate-800"
 	>
-		<Header currentPage={currentPage} />
+		<Header />
 		<aside>
-			<LeftSidebar currentPage={currentPage} />
+			<LeftSidebar />
 		</aside>
 		<main>
 			<PageContent frontmatter={frontmatter}>
