@@ -23,6 +23,7 @@ const title = frontmatter.title
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="color-scheme" content="light dark" />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -33,16 +34,16 @@ const title = frontmatter.title
 		class="text-slate-500 bg-slate-100 dark:text-slate-400 dark:bg-slate-800"
 	>
 		<Header />
-		<aside>
-			<LeftSidebar />
-		</aside>
-		<main>
+		<main class="container mx-auto grid grid-cols-4">
+			<aside>
+				<LeftSidebar />
+			</aside>
 			<PageContent frontmatter={frontmatter}>
 				<slot />
 			</PageContent>
+			<aside>
+				<RightSidebar headings={headings} editUrl={editUrl} />
+			</aside>
 		</main>
-		<aside>
-			<RightSidebar headings={headings} editUrl={editUrl} />
-		</aside>
 	</body>
 </html>

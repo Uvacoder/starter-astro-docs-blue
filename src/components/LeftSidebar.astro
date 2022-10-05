@@ -2,15 +2,17 @@
 import { SIDEBAR } from "../config";
 ---
 
-<nav>
-	<ul>
+<nav class="pt-10 px-8">
+	<ul class="space-y-12">
 		{
 			Object.entries(SIDEBAR).map(([header, children]) => (
 				<li>
-					<h2>{header}</h2>
-					<ul>
+					<h2 class="font-semibold text-slate-900 dark:text-slate-200 mb-3">
+						{header}
+					</h2>
+					<ul class="space-y-2">
 						{children.map((child) => (
-							<li>
+							<li class="pl-4 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300">
 								<a href={Astro.site?.pathname + child.link}>
 									{child.text}
 								</a>
