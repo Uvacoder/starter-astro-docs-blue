@@ -1,4 +1,4 @@
-# EccentricVamp.github.io
+# eccentricvamp.github.io
 
 ## Commands Cheatsheet
 
