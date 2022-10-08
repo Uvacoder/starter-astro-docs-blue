@@ -1,13 +1,7 @@
 import { defineConfig } from "astro/config";
-import preact from "@astrojs/preact";
-import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
-	integrations: [
-		preact(),
-		react(),
-		tailwind()
-	],
+	integrations: [tailwind()],
 	site: "https://eccentricvamp.github.io",
 });
