@@ -35,13 +35,13 @@ const title = frontmatter.title
 	>
 		<Header />
 		<main class="container mx-auto grid grid-cols-4">
-			<aside>
+			<aside class="pt-10 px-8">
 				<LeftSidebar />
 			</aside>
 			<PageContent frontmatter={frontmatter}>
 				<slot />
 			</PageContent>
-			<aside>
+			<aside class="pt-10 px-8">
 				<RightSidebar headings={headings} editUrl={editUrl} />
 			</aside>
 		</main>
